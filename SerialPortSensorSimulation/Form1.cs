@@ -127,5 +127,24 @@ namespace SerialPortSensorSimulation
         {
             timerPushToSerial.Enabled = false;
         }
+
+        private void tbTemperature_Scroll(object sender, EventArgs e)
+        {
+            //if (((TrackBar)sender).Name == "tbTemperature")
+            switch (((TrackBar)sender).Name)
+            {
+                case "tbTemperature":
+                    lblTemperature.Text = string.Format("{0:00}",tbTemperature.Value);
+                    break;
+                case "tbFanSpeed":
+                    lblFanSpeed.Text = string.Format("{0:00}",tbFanSpeed.Value);
+                    break;
+                case "tbHumidity":
+                    lblHumidity.Text = string.Format("{0:00}",tbHumidity.Value);
+                    break;
+            }
+                
+            
+        }
     }
 }

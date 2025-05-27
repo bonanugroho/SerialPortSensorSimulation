@@ -205,6 +205,7 @@ namespace SerialPortSensorSimulation
             this.tbHumidity.Name = "tbHumidity";
             this.tbHumidity.Size = new System.Drawing.Size(220, 45);
             this.tbHumidity.TabIndex = 3;
+            this.tbHumidity.Scroll += new System.EventHandler(this.tbTemperature_Scroll);
             // 
             // groupBox2
             // 
@@ -243,6 +244,7 @@ namespace SerialPortSensorSimulation
             this.tbFanSpeed.Name = "tbFanSpeed";
             this.tbFanSpeed.Size = new System.Drawing.Size(220, 45);
             this.tbFanSpeed.TabIndex = 3;
+            this.tbFanSpeed.Scroll += new System.EventHandler(this.tbTemperature_Scroll);
             // 
             // groupBox5
             // 
@@ -283,6 +285,7 @@ namespace SerialPortSensorSimulation
             this.tbTemperature.Size = new System.Drawing.Size(220, 45);
             this.tbTemperature.TabIndex = 3;
             this.tbTemperature.Value = 32;
+            this.tbTemperature.Scroll += new System.EventHandler(this.tbTemperature_Scroll);
             // 
             // timerPushToSerial
             // 
