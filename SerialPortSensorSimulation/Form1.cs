@@ -25,15 +25,11 @@ namespace SerialPortSensorSimulation
             btnOpen.Enabled = true;
             btnSendAllData.Enabled = false;
 
-            Random r = new Random();
-            
-
             string[] ports = SerialPort.GetPortNames();
             cbComPort.Items.Clear();
             cbComPort.Items.AddRange(ports);
 
             cbBaud.Text = "9600";
-
         }
 
 
@@ -44,6 +40,11 @@ namespace SerialPortSensorSimulation
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
+            if (cbComPort.Text == string.Empty)
+            {
+                return;
+            }
+            
             try
             {
                 serialPort1.PortName = cbComPort.Text;
@@ -55,7 +56,14 @@ namespace SerialPortSensorSimulation
                 btnOpen.Enabled = false;
                 btnSendAllData.Enabled = true;
                 
-                
+                Random r = new Random();
+                tbTemperature.Value = r.Next(32, 220);
+                tbFanSpeed.Value = r.Next(0, 100);
+                tbHumidity.Value = r.Next(-10, 135);
+
+                lblTemperature.Text = string.Format("{0:00}",tbTemperature.Value);
+                lblFanSpeed.Text = string.Format("{0:00}",tbFanSpeed.Value);
+                lblHumidity.Text = string.Format("{0:00}",tbHumidity.Value);
             }
             catch (Exception error)
             {

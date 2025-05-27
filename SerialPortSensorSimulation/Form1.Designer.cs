@@ -54,8 +54,8 @@ namespace SerialPortSensorSimulation
             this.tbTemperature = new System.Windows.Forms.TrackBar();
             this.timerPushToSerial = new System.Timers.Timer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTemperature = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblTemperature = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblFanSpeed = new System.Windows.Forms.Label();
@@ -275,7 +275,7 @@ namespace SerialPortSensorSimulation
             // 
             // tbTemperature
             // 
-            this.tbTemperature.Location = new System.Drawing.Point(65, 25);
+            this.tbTemperature.Location = new System.Drawing.Point(60, 25);
             this.tbTemperature.Maximum = 220;
             this.tbTemperature.Minimum = 32;
             this.tbTemperature.Name = "tbTemperature";
@@ -299,16 +299,6 @@ namespace SerialPortSensorSimulation
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Temperature";
             // 
-            // lblTemperature
-            // 
-            this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperature.Location = new System.Drawing.Point(16, 25);
-            this.lblTemperature.Name = "lblTemperature";
-            this.lblTemperature.Size = new System.Drawing.Size(60, 23);
-            this.lblTemperature.TabIndex = 4;
-            this.lblTemperature.Text = "220";
-            this.lblTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,6 +308,16 @@ namespace SerialPortSensorSimulation
             this.label9.TabIndex = 5;
             this.label9.Text = "° F";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTemperature
+            // 
+            this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperature.Location = new System.Drawing.Point(16, 25);
+            this.lblTemperature.Name = "lblTemperature";
+            this.lblTemperature.Size = new System.Drawing.Size(60, 23);
+            this.lblTemperature.TabIndex = 4;
+            this.lblTemperature.Text = "0";
+            this.lblTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox6
             // 
@@ -345,9 +345,10 @@ namespace SerialPortSensorSimulation
             this.lblFanSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFanSpeed.Location = new System.Drawing.Point(16, 25);
             this.lblFanSpeed.Name = "lblFanSpeed";
+            this.lblFanSpeed.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblFanSpeed.Size = new System.Drawing.Size(60, 23);
             this.lblFanSpeed.TabIndex = 4;
-            this.lblFanSpeed.Text = "220";
+            this.lblFanSpeed.Text = "0";
             this.lblFanSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox7
@@ -378,7 +379,7 @@ namespace SerialPortSensorSimulation
             this.lblHumidity.Name = "lblHumidity";
             this.lblHumidity.Size = new System.Drawing.Size(60, 23);
             this.lblHumidity.TabIndex = 4;
-            this.lblHumidity.Text = "220";
+            this.lblHumidity.Text = "0";
             this.lblHumidity.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
