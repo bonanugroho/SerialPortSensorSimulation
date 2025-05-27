@@ -23,8 +23,10 @@ namespace SerialPortSensorSimulation
             groupBoxSensors.Enabled = false;
             btnClose.Enabled = false;
             btnOpen.Enabled = true;
-            checkBoxSimultaneousData.Enabled = false;
             btnSendAllData.Enabled = false;
+
+            Random r = new Random();
+            
 
             string[] ports = SerialPort.GetPortNames();
             cbComPort.Items.Clear();
@@ -51,8 +53,9 @@ namespace SerialPortSensorSimulation
                 groupBoxSensors.Enabled = true;
                 btnClose.Enabled = true;
                 btnOpen.Enabled = false;
-                checkBoxSimultaneousData.Enabled = true;
                 btnSendAllData.Enabled = true;
+                
+                
             }
             catch (Exception error)
             {
@@ -70,7 +73,6 @@ namespace SerialPortSensorSimulation
                     groupBoxSensors.Enabled = false;
                     btnClose.Enabled = false;
                     btnOpen.Enabled = true;
-                    checkBoxSimultaneousData.Enabled = false;
                     btnSendAllData.Enabled = false;
                 }
             }
