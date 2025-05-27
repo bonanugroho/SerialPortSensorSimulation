@@ -286,7 +286,7 @@ namespace SerialPortSensorSimulation
             // 
             // timerPushToSerial
             // 
-            this.timerPushToSerial.Interval = 850D;
+            this.timerPushToSerial.Interval = 1500D;
             this.timerPushToSerial.SynchronizingObject = this;
             this.timerPushToSerial.Elapsed += new System.Timers.ElapsedEventHandler(this.timerPushToSerial_Elapsed);
             // 
