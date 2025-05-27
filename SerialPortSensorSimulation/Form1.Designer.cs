@@ -62,6 +62,7 @@ namespace SerialPortSensorSimulation
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lblHumidity = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBoxSensors.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -126,7 +127,7 @@ namespace SerialPortSensorSimulation
             // 
             // btnSendAllData
             // 
-            this.btnSendAllData.Location = new System.Drawing.Point(436, 327);
+            this.btnSendAllData.Location = new System.Drawing.Point(434, 305);
             this.btnSendAllData.Name = "btnSendAllData";
             this.btnSendAllData.Size = new System.Drawing.Size(230, 23);
             this.btnSendAllData.TabIndex = 8;
@@ -287,6 +288,7 @@ namespace SerialPortSensorSimulation
             // 
             this.timerPushToSerial.Interval = 850D;
             this.timerPushToSerial.SynchronizingObject = this;
+            this.timerPushToSerial.Elapsed += new System.Timers.ElapsedEventHandler(this.timerPushToSerial_Elapsed);
             // 
             // groupBox1
             // 
@@ -382,11 +384,22 @@ namespace SerialPortSensorSimulation
             this.lblHumidity.Text = "0";
             this.lblHumidity.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(436, 334);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(230, 23);
+            this.btnStop.TabIndex = 15;
+            this.btnStop.Text = "Stop Sending All Data";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 369);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox1);
@@ -416,6 +429,8 @@ namespace SerialPortSensorSimulation
             this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnStop;
 
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label13;

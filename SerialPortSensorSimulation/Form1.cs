@@ -7,6 +7,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace SerialPortSensorSimulation
@@ -24,6 +25,7 @@ namespace SerialPortSensorSimulation
             btnClose.Enabled = false;
             btnOpen.Enabled = true;
             btnSendAllData.Enabled = false;
+            btnStop.Enabled = false;
 
             string[] ports = SerialPort.GetPortNames();
             cbComPort.Items.Clear();
@@ -35,7 +37,7 @@ namespace SerialPortSensorSimulation
 
         private void btnSendAllData_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            timerPushToSerial.Enabled = true;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace SerialPortSensorSimulation
                 btnClose.Enabled = true;
                 btnOpen.Enabled = false;
                 btnSendAllData.Enabled = true;
+                btnStop.Enabled = true;
                 
                 Random r = new Random();
                 tbTemperature.Value = r.Next(32, 220);
@@ -83,6 +86,7 @@ namespace SerialPortSensorSimulation
                     btnClose.Enabled = false;
                     btnOpen.Enabled = true;
                     btnSendAllData.Enabled = false;
+                    btnStop.Enabled = false;
                 }
             }
             catch (Exception exception)
@@ -105,6 +109,23 @@ namespace SerialPortSensorSimulation
                 MessageBox.Show(exception.Message);
             }
 
+        }
+
+        private void timerPushToSerial_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                string mesg = string.Format("X={0:00}", tbTemperature.Value) + "#";
+                mesg += string.Format("Y={0:00}", tbFanSpeed.Value) + "#";
+                mesg += string.Format("Z={0:00}", tbHumidity.Value) + "#\r\n";
+                
+                serialPort1.Write(mesg);
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            timerPushToSerial.Enabled = false;
         }
     }
 }
