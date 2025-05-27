@@ -42,6 +42,7 @@ namespace SerialPortSensorSimulation
         {
             if (cbComPort.Text == string.Empty)
             {
+                MessageBox.Show("Please select Com Port before you click open", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             
